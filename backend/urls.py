@@ -20,4 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('rest_framework.urls')),  # REST framework login/logout views
+    path('api/', include('players.urls')),
+    path('api/', include('games.urls')),
+    path('api/', include('favorites.urls')),
 ]

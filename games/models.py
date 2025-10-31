@@ -4,7 +4,7 @@ from django.db import models
 class Team(models.Model):
     """NBA team model which stores team information from the BallDontLie API"""
 
-    api_id = models.IntegerFile(unique=True)
+    api_id = models.IntegerField(unique=True)
 
     abbreviation = models.CharField(max_length=10)
     city = models.CharField(max_length=100)
