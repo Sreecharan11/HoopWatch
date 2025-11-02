@@ -1,74 +1,25 @@
 import api from './axios';
 
-// Example API service functions
-// Uncomment and use these once you create the backend endpoints
-
-// Player Services
-export const playerService = {
-  // Get all players
-  getAll: () => api.get('/players/'),
-  
-  // Get single player
-  getById: (id) => api.get(`/players/${id}/`),
-  
-  // Search players
-  search: (query) => api.get('/players/', { params: { search: query } }),
+export const getPlayers = (search = '') => {
+  return api.get(`/players/${search ? `?search=${search}` : ''}`);
 };
 
-// Game Services
-export const gameService = {
-  // Get all games
-  getAll: () => api.get('/games/'),
-  
-  // Get single game
-  getById: (id) => api.get(`/games/${id}/`),
-  
-  // Get upcoming games
-  getUpcoming: () => api.get('/games/', { params: { status: 'upcoming' } }),
+export const getTeams = (search = '') => {
+  return api.get(`/teams/${search ? `?search=${search}` : ''}`);
 };
 
-// Event Services
-export const eventService = {
-  // Get all events
-  getAll: () => api.get('/events/'),
-  
-  // Get events for user's favorites
-  getFavoriteEvents: () => api.get('/events/favorites/'),
+export const getGames = () => {
+  return api.get('/games/');
 };
 
-// Favorite Services
-export const favoriteService = {
-  // Get user's favorites
-  getAll: () => api.get('/favorites/'),
-  
-  // Add favorite
-  add: (type, id) => api.post('/favorites/', { type, id }),
-  
-  // Remove favorite
-  remove: (favoriteId) => api.delete(`/favorites/${favoriteId}/`),
+export const getFavorites = () => {
+  return api.get('/favorites/');
 };
 
-// Auth Services
-export const authService = {
-  // Login
-  login: (username, password) => 
-    api.post('/auth/login/', { username, password }),
-  
-  // Logout
-  logout: () => api.post('/auth/logout/'),
-  
-  // Register
-  register: (userData) => api.post('/auth/register/', userData),
-  
-  // Get current user
-  getCurrentUser: () => api.get('/auth/user/'),
+export const addFavorite = (data) => {
+  return api.post('/favorites/', data);
 };
 
-export default {
-  playerService,
-  gameService,
-  eventService,
-  favoriteService,
-  authService,
+export const deleteFavorite = (id) => {
+  return api.delete(`/favorites/${id}/`);
 };
-
