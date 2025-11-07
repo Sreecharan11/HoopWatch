@@ -105,10 +105,6 @@ function FavoritesPage() {
                 </div>
             )}
 
-            <div className="results-count">
-                Total: {favorites.length} favorite{favorites.length !== 1 ? 's' : ''} 
-                ({playerFavorites.length} player{playerFavorites.length !== 1 ? 's' : ''}, {teamFavorites.length} team{teamFavorites.length !== 1 ? 's' : ''})
-            </div>
         </div>
     );
 };

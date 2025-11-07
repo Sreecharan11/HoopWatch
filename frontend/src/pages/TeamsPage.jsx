@@ -100,9 +100,6 @@ function TeamsPage() {
                 ))}
             </div>
 
-            <div className="results-count">
-                Showing {teams.length} teams ({favorites.filter(f => f.team).length} favorited)
-            </div>
         </div>
       );
 };

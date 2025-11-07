@@ -119,9 +119,6 @@ function PlayersPage() {
                 </table>
             </div>
 
-            <div className="results-count">
-                Showing {players.length} players ({favorites.filter(f => f.player).length} favorited)
-            </div>
         </div>
    
       );

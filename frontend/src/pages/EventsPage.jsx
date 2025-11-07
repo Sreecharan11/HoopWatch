@@ -112,9 +112,6 @@ function EventsPage() {
                 })}
             </div>
 
-            <div className="results-count">
-                {events.length} upcoming event{events.length !== 1 ? 's' : ''}
-            </div>
         </div>
     );
 };

@@ -4,15 +4,14 @@ from games.models import Team, Game
 from datetime import datetime, timedelta
 
 class Command(BaseCommand):
-    help = 'Fetch upcoming NBA games from ESPN API (next 7 days)'
+    help = 'Fetch upcoming NBA games from ESPN API'
 
     def handle(self, *args, **kwargs):
-        self.stdout.write('Fetching upcoming NBA games from ESPN API...')
+        self.stdout.write('Fetching upcoming NBA games from ESPN API')
         
         games_created = 0
         games_updated = 0
         
-        # Fetch games for the next 7 days
         for days_ahead in range(30):
             target_date = datetime.now() + timedelta(days=days_ahead)
             date_str = target_date.strftime('%Y%m%d')
@@ -20,7 +19,7 @@ class Command(BaseCommand):
             # ESPN API endpoint with specific date
             url = f'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates={date_str}'
             
-            self.stdout.write(f'\nFetching games for {target_date.strftime("%Y-%m-%d")}...')
+            self.stdout.write(f'\nFetching games for {target_date.strftime("%Y-%m-%d")}')
             
             try:
                 response = requests.get(url)

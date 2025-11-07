@@ -16,7 +16,6 @@ function App() {
             <div className="page-container">
               <div className="dashboard-welcome">
                 <h2>🏀 Welcome to HoopWatch!</h2>
-                <p>Your personalized NBA tracking app with full CRUD functionality</p>
                 <div className="dashboard-stats">
                   <Link to="/players" className="stat-card">
                     <h3>Players</h3>

@@ -128,6 +128,7 @@ class Command(BaseCommand):
             'OKC': ('West', 'Northwest'),
             'POR': ('West', 'Northwest'),
             'UTA': ('West', 'Northwest'),
+            'UTAH': ('West', 'Northwest'),
             
             # Western Conference - Pacific
             'GS': ('West', 'Pacific'),
