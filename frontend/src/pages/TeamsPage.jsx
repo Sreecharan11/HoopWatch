@@ -62,7 +62,7 @@ function TeamsPage() {
             }
         } catch (err) {
             console.error('Failed to toggle favorite:', err);
-            alert('Failed to update favorite. Please try again.');
+            console.error('Error details:', err.response?.data);
         }
     };
 

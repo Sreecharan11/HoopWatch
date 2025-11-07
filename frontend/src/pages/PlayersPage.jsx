@@ -51,11 +51,9 @@ function PlayersPage() {
             const existingFavorite = favorites.find(fav => fav.player === playerId);
             
             if (existingFavorite) {
-                // DELETE - Remove favorite
                 await deleteFavorite(existingFavorite.id);
                 setFavorites(favorites.filter(fav => fav.id !== existingFavorite.id));
             } else {
-                // CREATE - Add favorite
                 const response = await addFavorite({
                     favorite_type: 'player',
                     player: playerId
@@ -64,7 +62,7 @@ function PlayersPage() {
             }
         } catch (err) {
             console.error('Failed to toggle favorite:', err);
-            alert('Failed to update favorite. Please try again.');
+            console.error('Error details:', err.response?.data);
         }
     };
 

@@ -8,10 +8,6 @@ export const getTeams = (search = '') => {
   return api.get(`/teams/${search ? `?search=${search}` : ''}`);
 };
 
-export const getGames = () => {
-  return api.get('/games/');
-};
-
 export const getMyEvents = () => {
   return api.get('/games/my_events/');
 };

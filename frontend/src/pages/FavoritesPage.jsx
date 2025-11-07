@@ -30,11 +30,9 @@ function FavoritesPage() {
             setFavorites(favorites.filter(fav => fav.id !== favoriteId));
         } catch (err) {
             console.error('Failed to delete favorite:', err);
-            alert('Failed to remove favorite. Please try again.');
         }
     };
 
-    // Separate favorites by type
     const playerFavorites = favorites.filter(fav => fav.favorite_type === 'player');
     const teamFavorites = favorites.filter(fav => fav.favorite_type === 'team');
 
@@ -57,7 +55,6 @@ function FavoritesPage() {
         <div className="page-container">
             <h1>My Favorites ⭐</h1>
 
-            {/* Players Section */}
             {playerFavorites.length > 0 && (
                 <div className="favorites-section">
                     <h2 className="section-title">
@@ -83,7 +80,6 @@ function FavoritesPage() {
                 </div>
             )}
 
-            {/* Teams Section */}
             {teamFavorites.length > 0 && (
                 <div className="favorites-section">
                     <h2 className="section-title">
