@@ -6,13 +6,14 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo">
-                    HoopWatch
+                    🏀 HoopWatch
                 </Link>
                 <ul className="nav-menu">
                     <li><Link to="/">Dashboard</Link></li>
                     <li><Link to="/players">Players</Link></li>
                     <li><Link to="/teams">Teams</Link></li>
-                    <li><Link to="/games">Games</Link></li>
+                    <li><Link to="/events">Events 📅</Link></li>
+                    <li><Link to="/favorites">Favorites ⭐</Link></li>
                 </ul>
             </div>
         </nav>

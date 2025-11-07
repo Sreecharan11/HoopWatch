@@ -12,6 +12,10 @@ export const getGames = () => {
   return api.get('/games/');
 };
 
+export const getMyEvents = () => {
+  return api.get('/games/my_events/');
+};
+
 export const getFavorites = () => {
   return api.get('/favorites/');
 };

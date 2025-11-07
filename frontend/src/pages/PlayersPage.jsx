@@ -1,15 +1,17 @@
 import {useState, useEffect} from 'react';
-import { getPlayers } from '../api/services';
+import { getPlayers, getFavorites, addFavorite, deleteFavorite } from '../api/services';
 import './PlayersPage.css';
 
 function PlayersPage() { 
     const [players, setPlayers] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState('');
     const [error, setError] = useState(null);
 
     useEffect(() => {
         fetchPlayers();
+        fetchFavorites();
     }, []);
 
     const fetchPlayers = async (searchTerm = '') => {
@@ -25,16 +27,51 @@ function PlayersPage() {
         }
       };
 
-      const handleSearch = (e) => {
+    const fetchFavorites = async () => {
+        try {
+            const response = await getFavorites();
+            setFavorites(response.data);
+        } catch (err) {
+            console.error('Failed to load favorites:', err);
+        }
+    };
+
+    const handleSearch = (e) => {
         const value = e.target.value;
         setSearch(value);
         fetchPlayers(value);
-      };
+    };
 
-      if (loading) return <div className="loading">Loading...</div>;
-      if (error) return <div className="error">{error}</div>;
+    const isFavorited = (playerId) => {
+        return favorites.some(fav => fav.player === playerId);
+    };
 
-      return (
+    const handleFavoriteToggle = async (playerId) => {
+        try {
+            const existingFavorite = favorites.find(fav => fav.player === playerId);
+            
+            if (existingFavorite) {
+                // DELETE - Remove favorite
+                await deleteFavorite(existingFavorite.id);
+                setFavorites(favorites.filter(fav => fav.id !== existingFavorite.id));
+            } else {
+                // CREATE - Add favorite
+                const response = await addFavorite({
+                    favorite_type: 'player',
+                    player: playerId
+                });
+                setFavorites([...favorites, response.data]);
+            }
+        } catch (err) {
+            console.error('Failed to toggle favorite:', err);
+            alert('Failed to update favorite. Please try again.');
+        }
+    };
+
+    if (loading) return <div className="loading">Loading...</div>;
+    if (error) return <div className="error">{error}</div>;
+
+    return (
         <div className="page-container">
             <h1>NBA Players</h1>
 
@@ -51,6 +88,7 @@ function PlayersPage() {
                 <table className="data-table">
                     <thead>
                         <tr>
+                            <th>Favorite</th>
                             <th>Name</th>
                             <th>Position</th>
                             <th>Team</th>
@@ -62,6 +100,15 @@ function PlayersPage() {
                     <tbody>
                         {players.map((player) => (
                             <tr key={player.id}>
+                                <td>
+                                    <button 
+                                        className={`favorite-btn ${isFavorited(player.id) ? 'favorited' : ''}`}
+                                        onClick={() => handleFavoriteToggle(player.id)}
+                                        title={isFavorited(player.id) ? 'Remove from favorites' : 'Add to favorites'}
+                                    >
+                                        {isFavorited(player.id) ? '❤️' : '🤍'}
+                                    </button>
+                                </td>
                                 <td>{player.full_name}</td>
                                 <td>{player.position}</td>
                                 <td>{player.team_name}</td>
@@ -75,7 +122,7 @@ function PlayersPage() {
             </div>
 
             <div className="results-count">
-                Showing {players.length} results
+                Showing {players.length} players ({favorites.filter(f => f.player).length} favorited)
             </div>
         </div>
    
