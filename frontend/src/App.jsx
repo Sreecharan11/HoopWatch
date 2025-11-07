@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import PlayersPage from './pages/PlayersPage';
 import TeamsPage from './pages/TeamsPage';
@@ -14,27 +14,26 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div className="page-container">
-              <h1>🏀 HoopWatch Dashboard</h1>
               <div className="dashboard-welcome">
-                <h2>Welcome to HoopWatch!</h2>
-                <p>Your personalized NBA tracking app with CRUD functionality!</p>
+                <h2>🏀 Welcome to HoopWatch!</h2>
+                <p>Your personalized NBA tracking app with full CRUD functionality</p>
                 <div className="dashboard-stats">
-                  <div className="stat-card">
+                  <Link to="/players" className="stat-card">
                     <h3>Players</h3>
                     <p>Browse & favorite players</p>
-                  </div>
-                  <div className="stat-card">
+                  </Link>
+                  <Link to="/teams" className="stat-card">
                     <h3>Teams</h3>
                     <p>Explore & favorite teams</p>
-                  </div>
-                  <div className="stat-card">
+                  </Link>
+                  <Link to="/events" className="stat-card">
                     <h3>Events</h3>
                     <p>Your upcoming games</p>
-                  </div>
-                  <div className="stat-card">
+                  </Link>
+                  <Link to="/favorites" className="stat-card">
                     <h3>Favorites</h3>
                     <p>Manage your favorites</p>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>

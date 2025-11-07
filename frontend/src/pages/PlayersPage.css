@@ -1,5 +1,5 @@
 .page-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 2rem auto;
     padding: 0 2rem;
   }
@@ -7,10 +7,12 @@
   h1 {
     color: #333;
     margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
   }
   
   .search-bar {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
   
   .search-bar input {
@@ -18,21 +20,23 @@
     max-width: 400px;
     padding: 0.75rem 1rem;
     font-size: 1rem;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    transition: border-color 0.3s;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+    background: white;
   }
   
   .search-bar input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #1976d2;
   }
   
   .table-container {
     overflow-x: auto;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
   }
   
   .data-table {
@@ -45,13 +49,14 @@
     padding: 1rem;
     text-align: left;
     font-weight: 600;
-    color: #555;
+    color: #333;
     border-bottom: 2px solid #e0e0e0;
   }
   
   .data-table td {
     padding: 1rem;
     border-bottom: 1px solid #f0f0f0;
+    color: #333;
   }
 
   .data-table td:first-child {
@@ -96,6 +101,10 @@
     font-size: 1.2rem;
   }
   
+  .loading {
+    color: #1976d2;
+  }
+  
   .error {
     color: #e74c3c;
   }
@@ -104,4 +113,5 @@
     margin-top: 1rem;
     color: #666;
     font-size: 0.9rem;
+    text-align: center;
   }

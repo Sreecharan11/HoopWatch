@@ -1,12 +1,16 @@
 .empty-state {
     text-align: center;
     padding: 60px 20px;
-    color: #666;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
 }
 
 .empty-state p {
     font-size: 1.1rem;
     margin: 10px 0;
+    color: #666;
 }
 
 .favorites-section {
@@ -19,13 +23,14 @@
     gap: 10px;
     color: #333;
     font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 3px solid #1976d2;
+    border-bottom: 2px solid #1976d2;
 }
 
 .section-icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .favorites-grid {
@@ -37,28 +42,29 @@
 
 .favorite-card {
     background: white;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: box-shadow 0.2s;
     position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .favorite-card.player-card {
     border: 2px solid #2196f3;
+    border-left: 4px solid #2196f3;
 }
 
 .favorite-card.player-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+    box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
 }
 
 .favorite-card.team-card {
     border: 2px solid #ff9800;
+    border-left: 4px solid #ff9800;
 }
 
 .favorite-card.team-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
 }
 
 .delete-btn {
@@ -85,5 +91,6 @@
     margin: 0;
     color: #333;
     font-size: 1.2rem;
+    font-weight: 600;
 }
 
