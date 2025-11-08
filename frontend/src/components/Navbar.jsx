@@ -14,6 +14,7 @@ function Navbar() {
                     <li><Link to="/teams">Teams</Link></li>
                     <li><Link to="/events">Events 📅</Link></li>
                     <li><Link to="/favorites">Favorites ⭐</Link></li>
+                    <li><Link to="/about">About</Link></li>
                 </ul>
             </div>
         </nav>

@@ -4,6 +4,7 @@ import PlayersPage from './pages/PlayersPage';
 import TeamsPage from './pages/TeamsPage';
 import FavoritesPage from './pages/FavoritesPage';
 import EventsPage from './pages/EventsPage';
+import About from './pages/About';
 import './App.css';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/teams" element={<TeamsPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
